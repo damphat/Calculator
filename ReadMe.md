@@ -19,7 +19,7 @@ BNF Grammar used in the project:
          | "(" exp ")"
          | number
 
-    number -> [0-9]+ (. [0-9]+)?
+    number -> [0-9]+ ([.][0-9]+)? ([eE](+|-)?[0-9]+)
 
 
 ![alt](screenshot.jpg)
