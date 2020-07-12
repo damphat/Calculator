@@ -12,11 +12,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		screenshot.jpg = screenshot.jpg
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculator", "Calculator\Calculator.csproj", "{03E6A39A-B5D3-41B6-92B4-F41F82180E73}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator.Win", "Calculator.Win\Calculator.Win.csproj", "{4F465822-6625-4B80-8C0A-4EEC8CC4B320}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculator.Tests", "Calculator.Tests\Calculator.Tests.csproj", "{7BEFB809-2DE3-4264-A2D9-F0660D95E330}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator.Win", "Calculator.Win\Calculator.Win.csproj", "{4F465822-6625-4B80-8C0A-4EEC8CC4B320}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculator", "Calculator\Calculator.csproj", "{03E6A39A-B5D3-41B6-92B4-F41F82180E73}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
