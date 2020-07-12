@@ -1,39 +1,37 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Xunit;
 
 namespace Calculator.Tests {
-    [TestClass]
     public class CalcTests {
-        [TestMethod]
+        [Fact]
         public void Unary() {
-            Assert.AreEqual(+1, Calc.Eval("+1"));
-            Assert.AreEqual(-1, Calc.Eval("-1"));
+            Assert.Equal(+1, Calc.Eval("+1"));
+            Assert.Equal(-1, Calc.Eval("-1"));
         }
 
-        [TestMethod]
+        [Fact]
         public void Binary() {
-            Assert.AreEqual(+5, Calc.Eval("2+3"));
-            Assert.AreEqual(-1, Calc.Eval("2-3"));
-            Assert.AreEqual(+6, Calc.Eval("2*3"));
-            Assert.AreEqual(2.0/3, Calc.Eval("2/3"));
+            Assert.Equal(+5, Calc.Eval("2+3"));
+            Assert.Equal(-1, Calc.Eval("2-3"));
+            Assert.Equal(+6, Calc.Eval("2*3"));
+            Assert.Equal(2.0/3, Calc.Eval("2/3"));
         }
 
-        [TestMethod]
+        [Fact]
         public void Parentheses() {
-            Assert.AreEqual(2, Calc.Eval("(((1)+(1)))"));
+            Assert.Equal(2, Calc.Eval("(((1)+(1)))"));
         }
 
-        [TestMethod]
+        [Fact]
         public void Associativity() {
-            Assert.AreEqual(1 - 1 - 1, Calc.Eval("1-1-1"));
+            Assert.Equal(1 - 1 - 1, Calc.Eval("1-1-1"));
         }
 
-        [TestMethod]
+        [Fact]
         public void Precedence() {
-            Assert.AreEqual(1 + 2 * 3, Calc.Eval("1+2*3"));
-            Assert.AreEqual((1 + 2) * 3, Calc.Eval("(1+2)*3"));
-            Assert.AreEqual(2 * 3 + 1, Calc.Eval("2*3 + 1"));
-            Assert.AreEqual(2 * (3 + 1), Calc.Eval("2*(3 + 1)"));
+            Assert.Equal(1 + 2 * 3, Calc.Eval("1+2*3"));
+            Assert.Equal((1 + 2) * 3, Calc.Eval("(1+2)*3"));
+            Assert.Equal(2 * 3 + 1, Calc.Eval("2*3 + 1"));
+            Assert.Equal(2 * (3 + 1), Calc.Eval("2*(3 + 1)"));
 
         }
     }
