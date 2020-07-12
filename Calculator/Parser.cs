@@ -44,7 +44,7 @@ namespace Calculator {
                 }
 
                 case Kind.Eof:
-                    throw new Exception("number expected, found eof");
+                    throw new Exception("number expected");
 
                 default:
                     throw new Exception($"number expected, found '{t.Raw}'");
@@ -79,7 +79,7 @@ namespace Calculator {
         public Exp Parse() {
             var exp = ParseExpr();
             if (t.Kind != Kind.Eof) {
-                throw new Exception("eof expected");
+                throw new Exception($"unexpected token '{t.Raw}'");
             }
 
             return exp;
