@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Calculator.Tests {
     [TestClass]
@@ -27,7 +28,7 @@ namespace Calculator.Tests {
 
         [TestMethod]
         public void It_reads_numbers() {
-            var src = "0  01234567890 090.090";
+            var src = "0 9 01234567890";
             var lexer = new Lexer(src);
 
             var token = lexer.Read();
@@ -35,12 +36,45 @@ namespace Calculator.Tests {
             Assert.AreEqual(Kind.Number, token.Kind);
 
             token = lexer.Read();
-            Assert.AreEqual("01234567890", token.Raw);
+            Assert.AreEqual("9", token.Raw);
             Assert.AreEqual(Kind.Number, token.Kind);
 
             token = lexer.Read();
-            Assert.AreEqual("090.090", token.Raw);
+            Assert.AreEqual("01234567890", token.Raw);
             Assert.AreEqual(Kind.Number, token.Kind);
+        }
+
+        [TestMethod]
+        public void It_reads_numbers_fraction() {
+            var src = "0909.0909";
+            var lexer = new Lexer(src);
+
+            var token = lexer.Read();
+            Assert.AreEqual("0909.0909", token.Raw);
+            Assert.AreEqual(Kind.Number, token.Kind);
+        }
+
+        [TestMethod]
+        public void It_reads_numbers_exponent() {
+            var srcs = "1e1 1E1 1e+1 1e-1 0e0 9e9".Split(' ');
+
+            foreach (var src in srcs) {
+                var lexer = new Lexer(src);
+                var token = lexer.Read();
+                Assert.AreEqual(src, token.Raw);
+                Assert.AreEqual(Kind.Number, token.Kind);
+            }
+        }
+
+        [TestMethod]
+        public void It_reads_numbers_error() {
+            var srcs = ".1  1.  1.1.1  1e  1e+  1e-  1e1.1".Split(new [] {' '}, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (var src in srcs) {
+                var lexer = new Lexer(src);
+                var token = lexer.Read();
+                Assert.AreNotEqual(src, token.Raw);
+            }
         }
 
         [TestMethod]
