@@ -13,6 +13,7 @@ BNF Grammar used in the project:
 
     factor -> "+" factor
          | "-" factor
+         | "(" exp ")"
          | number
 
     number -> [0-9]+ (. [0-9]+)?
