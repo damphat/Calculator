@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Calculator.Properties {
+namespace Calculator.Win.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4F465822-6625-4B80-8C0A-4EEC8CC4B320}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Calculator</RootNamespace>
+    <RootNamespace>Calculator.Win</RootNamespace>
     <AssemblyName>Calculator.Win</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

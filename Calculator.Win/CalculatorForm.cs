@@ -3,9 +3,9 @@ using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 using Calculator.Ast;
-using Calculator.Properties;
+using Calculator.Win.Properties;
 
-namespace Calculator {
+namespace Calculator.Win {
     public partial class CalculatorForm : Form {
         public CalculatorForm() {
             InitializeComponent();

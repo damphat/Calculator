@@ -1,4 +1,4 @@
-﻿namespace Calculator {
+﻿namespace Calculator.Win {
     partial class CalculatorForm {
         /// <summary>
         /// Required designer variable.
@@ -134,14 +134,14 @@
             // txtSrc
             // 
             this.txtSrc.AcceptsTab = true;
-            this.txtSrc.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Calculator.Properties.Settings.Default, "Src", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.txtSrc.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Calculator.Win.Properties.Settings.Default, "Src", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.txtSrc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtSrc.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSrc.Location = new System.Drawing.Point(0, 23);
             this.txtSrc.Name = "txtSrc";
             this.txtSrc.Size = new System.Drawing.Size(443, 94);
             this.txtSrc.TabIndex = 0;
-            this.txtSrc.Text = global::Calculator.Properties.Settings.Default.Src;
+            this.txtSrc.Text = global::Calculator.Win.Properties.Settings.Default.Src;
             this.txtSrc.TextChanged += new System.EventHandler(this.txtSrc_TextChanged);
             // 
             // label3
