@@ -15,8 +15,15 @@ namespace Calculator {
             t = lex.Read();
         }
 
-        private Exp ParseValue() {
+        private Exp ParseFactor() {
             switch (t.Kind) {
+                case Kind.Plus:
+                case Kind.Minus: {
+                    var op = t;
+                    Next();
+                    var ret = new UnaryExp(op, ParseFactor()); // ParseExp?
+                    return ret;
+                }
                 case Kind.Number: {
                     var ret = new NumberExp(t);
                     Next();
@@ -26,7 +33,7 @@ namespace Calculator {
                 case Kind.Open: {
                     var open = t;
                     Next();
-                    var exp = ParseExp();
+                    var exp = ParseExpr();
                     if (t.Kind != Kind.Close) {
                         throw new Exception("')' expected");
                     }
@@ -37,59 +44,42 @@ namespace Calculator {
                 }
 
                 case Kind.Eof:
-                    throw new Exception("number or '(' expected");
+                    throw new Exception("number expected, found eof");
 
                 default:
-                    throw new NotImplementedException("number or '(' expected");
+                    throw new Exception($"number expected, found '{t.Raw}'");
             }
         }
 
-        private Exp ParseUnary() {
-            switch (t.Kind) {
-                case Kind.Plus:
-                case Kind.Minus: {
-                    var op = t;
-                    Next();
-                    var ret = new UnaryExp(op, ParseUnary()); // ParseExp?
-                    return ret;
-                }
-                default:
-                    return ParseValue();
-            }
-        }
-
-        private Exp ParseMulDiv() {
-            var left = ParseUnary();
-            if (t.Kind == Kind.Mul || t.Kind == Kind.Div) {
+        private Exp ParseTerm() {
+            var left = ParseFactor();
+            while (t.Kind == Kind.Mul || t.Kind == Kind.Div) {
                 var op = t;
                 Next();
-                var right = ParseMulDiv();
-                return new BinaryExp(op, left, right);
+                var right = ParseFactor();
+                left = new BinaryExp(op, left, right);
             }
 
             return left;
         }
 
-        private Exp ParsePlusMinus() {
-            var left = ParseMulDiv();
-            if (t.Kind == Kind.Plus || t.Kind == Kind.Minus) {
+        private Exp ParseExpr() {
+            var left = ParseTerm();
+            while (t.Kind == Kind.Plus || t.Kind == Kind.Minus) {
                 var op = t;
                 Next();
-                var right = ParsePlusMinus();
-                return new BinaryExp(op, left, right);
+                var right = ParseTerm();
+                left = new BinaryExp(op, left, right);
             }
 
             return left;
         }
 
-        private Exp ParseExp() {
-            return ParsePlusMinus();
-        }
 
         public Exp Parse() {
-            var exp = ParseExp();
+            var exp = ParseExpr();
             if (t.Kind != Kind.Eof) {
-                throw new Exception("Eof expected");
+                throw new Exception("eof expected");
             }
 
             return exp;
