@@ -55,7 +55,7 @@ namespace Calculator.Tests {
 
         [Fact]
         public void It_reads_numbers_exponent() {
-            var srcs = "1e1 1E1 1e+1 1e-1 0e0 9e9".Split(' ');
+            var srcs = "1e1 1E1 1e+1 1e-1 0e0 9e9 1e0909".Split(' ');
 
             foreach (var src in srcs) {
                 var lexer = new Lexer(src);

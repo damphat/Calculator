@@ -14,11 +14,28 @@ namespace Calculator {
         }
 
         private char Peek(int i) {
-            return end + i >= src.Length ? Eof : src[end + i];
+            var t = end + i;
+            return t < src.Length ? src[t] : Eof;
         }
 
         private void Next() {
-            c = ++end == src.Length ? Eof : src[end];
+            end ++;
+            if (end < src.Length) {
+                c = src[end];
+            } else {
+                end = src.Length;
+                c = Eof;
+            }
+        }
+
+        private void Next(int i) {
+            end += i;
+            if (end < src.Length) {
+                c = src[end];
+            } else {
+                end = src.Length;
+                c = Eof;
+            }
         }
 
         public Token Read() {
@@ -69,8 +86,7 @@ namespace Calculator {
                     if (c == '.') {
                         var c1 = Peek(1);
                         if (c1 >= '0' && c1 <= '9') {
-                            Next();
-                            Next();
+                            Next(2);
                         }
 
                         while (c >= '0' && c <= '9') {
@@ -78,7 +94,24 @@ namespace Calculator {
                         }
                     }
 
-                    // TODO scan "(e|E) (+|-)? [0-9]+"
+                    // TODO scan "((e|E) (+|-)? [0-9]+)?"
+                    if (c == 'e' || c == 'E') {
+                        int count = 1;
+                        var t = Peek(1);
+                        if (t == '+' || t == '-') {
+                            count++;
+                            t = Peek(2);
+                        }
+
+                        if (t >= '0' && t <= '9') {
+                            Next(count + 1);
+
+                            while (c>='0' && c <= '9') {
+                                Next();
+                            }
+                        }
+                    }
+
 
                     return new Token(Kind.Number, src.Substring(start, end - start));
                 }
