@@ -1,5 +1,8 @@
-Learn to implement a handy recursive descent parser in C#
+Canculator, handy recursive descent parser in C#
 =====
+
+[![Build Status](https://travis-ci.org/damphat/Calculator.svg?branch=master)](https://travis-ci.org/damphat/Calculator)
+
 
 BNF Grammar used in the project:
 
