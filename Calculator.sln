@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Calculator\Calculator.csproj", "{4F465822-6625-4B80-8C0A-4EEC8CC4B320}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1C8D57E1-70BD-4CF8-9A9D-67F5E9265111}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		ReadMe.md = ReadMe.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F465822-6625-4B80-8C0A-4EEC8CC4B320}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F465822-6625-4B80-8C0A-4EEC8CC4B320}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F465822-6625-4B80-8C0A-4EEC8CC4B320}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F465822-6625-4B80-8C0A-4EEC8CC4B320}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8D484273-C73C-4B7A-8917-83E9630BBD7F}
+	EndGlobalSection
+EndGlobal
