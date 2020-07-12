@@ -1,6 +1,8 @@
-Learn to implement a handy recursive parser in C#
+Learn to implement a handy recursive descent parser in C#
+=====
 
-BNF
+BNF Grammar used in the project:
+
     exp -> exp "+" term
          | exp "-" term
          | term
@@ -14,3 +16,6 @@ BNF
          | number
 
     number -> [0-9]+ (. [0-9]+)?
+
+
+![alt](screenshot.jpg)
