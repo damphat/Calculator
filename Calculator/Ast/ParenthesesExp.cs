@@ -1,4 +1,4 @@
-﻿namespace Calculator.Lang.Ast {
+﻿namespace Calculator.Ast {
     public class ParenthesesExp : Exp {
         public readonly Token Open;
         public readonly Exp Exp;
@@ -11,7 +11,7 @@
         }
 
         protected override double Eval() {
-            return Exp.Value;
+            return Exp.Value();
         }
 
         public override string ToString() {

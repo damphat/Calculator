@@ -2,8 +2,7 @@
 using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
-using Calculator.Lang;
-using Calculator.Lang.Ast;
+using Calculator.Ast;
 using Calculator.Properties;
 
 namespace Calculator {
@@ -24,14 +23,13 @@ namespace Calculator {
         private void SetExpText(string src) {
             tree.BeginUpdate();
             try {
-                var parser = new Parser(src);
                 tree.Nodes.Clear();
                 var root = tree.Nodes.Add("root");
-                Exp ret = parser.Parse();
+                Exp ret = Calc.Parse(src);
                 Update(root, "", ret);
                 root.Expand();
                 txtLog.ForeColor = SystemColors.ControlText;
-                txtLog.Text = ret.Value.ToString(CultureInfo.InvariantCulture);
+                txtLog.Text = ret.Value().ToString(CultureInfo.InvariantCulture);
             } catch (Exception exception) {
                 txtLog.ForeColor = Color.Red;
                 txtLog.Text = exception.Message;

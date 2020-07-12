@@ -1,4 +1,4 @@
-﻿namespace Calculator.Lang {
+﻿namespace Calculator {
     public enum Kind {
         Space,
         Number,

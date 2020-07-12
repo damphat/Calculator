@@ -1,4 +1,4 @@
-﻿namespace Calculator.Lang {
+﻿namespace Calculator {
     public class Token : Node {
         public Token(Kind kind, string raw) {
             Kind = kind;

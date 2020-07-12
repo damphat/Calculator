@@ -1,7 +1,7 @@
 ﻿using System;
-using Calculator.Lang.Ast;
+using Calculator.Ast;
 
-namespace Calculator.Lang {
+namespace Calculator {
     public class Parser {
         private readonly Lexer lex;
         private Token t;

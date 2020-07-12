@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Calculator.Lang.Ast {
+namespace Calculator.Ast {
     public class BinaryExp : Exp {
         public readonly Exp Left;
         public readonly Token Op;
@@ -14,10 +14,10 @@ namespace Calculator.Lang.Ast {
 
         protected override double Eval() {
             switch (Op.Raw) {
-                case "+": return Left.Value + Right.Value;
-                case "-": return Left.Value - Right.Value;
-                case "*": return Left.Value * Right.Value;
-                case "/": return Left.Value / Right.Value;
+                case "+": return Left.Value() + Right.Value();
+                case "-": return Left.Value() - Right.Value();
+                case "*": return Left.Value() * Right.Value();
+                case "/": return Left.Value() / Right.Value();
                 default:
                     throw new NotImplementedException(Op.Raw);
             }

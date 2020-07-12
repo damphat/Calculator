@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Calculator.Lang.Ast {
+namespace Calculator.Ast {
     public class UnaryExp : Exp {
         public readonly Exp Exp;
         public readonly Token Op;
@@ -12,8 +12,8 @@ namespace Calculator.Lang.Ast {
 
         protected override double Eval() {
             switch (Op.Raw) {
-                case "+": return Exp.Value;
-                case "-": return -Exp.Value;
+                case "+": return Exp.Value();
+                case "-": return -Exp.Value();
                 default:
                     throw new NotImplementedException(Op.Raw);
             }

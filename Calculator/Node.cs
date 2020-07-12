@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Calculator.Lang {
+namespace Calculator {
     /// <summary>
     /// Node is a special dictionary, which is used its fields as children.
     /// </summary>

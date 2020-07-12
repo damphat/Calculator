@@ -1,4 +1,4 @@
-﻿namespace Calculator.Lang.Ast {
+﻿namespace Calculator.Ast {
     public class NumberExp : Exp {
         public readonly Token Number;
 

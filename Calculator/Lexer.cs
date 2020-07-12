@@ -1,5 +1,5 @@
 ﻿
-namespace Calculator.Lang {
+namespace Calculator {
     public class Lexer {
         private const char Eof = char.MaxValue;
         private readonly string src;
