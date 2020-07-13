@@ -19,7 +19,12 @@ namespace Calculator {
                     var fieldCaches = new Dictionary<string, FieldInfo>();
                     var fieldInfos = type.GetFields().Where(fi => typeof(Node).IsAssignableFrom(fi.FieldType));
                     foreach (var fieldInfo in fieldInfos) {
-                        fieldCaches[fieldInfo.Name] = fieldInfo;
+                        var name = fieldInfo.Name;
+                        var att = fieldInfo.GetCustomAttribute<ChildAttribute>();
+                        if (att != null) {
+                            name = att.Name ?? name;
+                        }
+                        fieldCaches[name] = fieldInfo;
                     }
 
                     return TypeCaches[type] = fieldCaches;
