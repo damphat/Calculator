@@ -1,6 +1,5 @@
 ﻿namespace Calculator {
     public enum Kind {
-        Space,
         Number,
         Open,
         Close,
