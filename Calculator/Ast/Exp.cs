@@ -1,15 +1,14 @@
-﻿using System;
-
-namespace Calculator.Ast {
+﻿namespace Calculator.Ast {
     public abstract class Exp : Node {
-        private Nullable<double> _value;
+        private double? value;
+
         public double Value() {
-            if (_value == null) {
-                _value = Eval();
+            if (value == null) {
+                value = Eval();
             }
-            return (double)_value;
+
+            return (double) value;
         }
-    
 
         protected abstract double Eval();
 

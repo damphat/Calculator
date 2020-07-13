@@ -1,5 +1,4 @@
-﻿
-namespace Calculator {
+﻿namespace Calculator {
     public class Lexer {
         private const char Eof = char.MaxValue;
         private readonly string src;
@@ -19,7 +18,7 @@ namespace Calculator {
         }
 
         private void Next() {
-            end ++;
+            end++;
             if (end < src.Length) {
                 c = src[end];
             } else {
@@ -82,7 +81,7 @@ namespace Calculator {
                         Next();
                     }
 
-                    // scan ".[0-9]+"
+                    // scan "[.][0-9]+"
                     if (c == '.') {
                         var c1 = Peek(1);
                         if (c1 >= '0' && c1 <= '9') {
@@ -94,9 +93,9 @@ namespace Calculator {
                         }
                     }
 
-                    // TODO scan "((e|E) (+|-)? [0-9]+)?"
+                    // scan "((e|E) (+|-)? [0-9]+)?"
                     if (c == 'e' || c == 'E') {
-                        int count = 1;
+                        var count = 1;
                         var t = Peek(1);
                         if (t == '+' || t == '-') {
                             count++;
@@ -106,12 +105,11 @@ namespace Calculator {
                         if (t >= '0' && t <= '9') {
                             Next(count + 1);
 
-                            while (c>='0' && c <= '9') {
+                            while (c >= '0' && c <= '9') {
                                 Next();
                             }
                         }
                     }
-
 
                     return new Token(Kind.Number, src.Substring(start, end - start));
                 }

@@ -3,16 +3,16 @@ using Calculator.Ast;
 
 namespace Calculator {
     public class Parser {
-        private readonly Lexer lex;
+        private readonly Lexer _lexer;
         private Token t;
 
         public Parser(string src) {
-            lex = new Lexer(src);
-            t = lex.Read();
+            _lexer = new Lexer(src);
+            t = _lexer.Read();
         }
 
         private void Next() {
-            t = lex.Read();
+            t = _lexer.Read();
         }
 
         private Exp ParseFactor() {
@@ -74,7 +74,6 @@ namespace Calculator {
 
             return left;
         }
-
 
         public Exp Parse() {
             var exp = ParseExpr();

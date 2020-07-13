@@ -2,8 +2,8 @@
 
 namespace Calculator.Ast {
     public class UnaryExp : Exp {
-        public readonly Exp Exp;
         public readonly Token Op;
+        public readonly Exp Exp;
 
         public UnaryExp(Token op, Exp exp) {
             Op = op;

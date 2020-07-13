@@ -8,7 +8,6 @@ namespace Calculator.Ast {
 
         public NumberExp(Token number) {
             Number = number;
-
         }
 
         protected override double Eval() {
