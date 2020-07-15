@@ -1,4 +1,4 @@
-Canculator, handy recursive descent parser in C#
+Calculator, handy recursive descent parser in C#
 =====
 
 [![Build Status](https://travis-ci.org/damphat/Calculator.svg?branch=master)](https://travis-ci.org/damphat/Calculator)
