@@ -1,7 +1,6 @@
-Calculator, handy recursive descent parser in C#
-=====
+# Calculator, handy recursive descent parser in C#
 
-[![Build Status](https://travis-ci.org/damphat/Calculator.svg?branch=master)](https://travis-ci.org/damphat/Calculator)
+[![Test Status](https://github.com/damphat/Calculator/workflows/test/badge.svg)](https://github.com/damphat/Calculator/actions?query=test)
 
 
 BNF Grammar used in the project:
